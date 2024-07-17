@@ -14,6 +14,7 @@
 |20| 95 |0.052 |
 |40| 78 |0.073 |
 
+Benchmark run on RTX 4090.
 
 ## References:
 - [[SPARROWS](https://roahmlab.github.io/sparrows/)] Michaux, J., Li, A., Chen, Q., Chen, C., Zhang, B. and Vasudevan, R., 2024. Safe Planning for Articulated Robots Using Reachability-based Obstacle Avoidance With Spheres. arXiv preprint arXiv:2402.08857.
