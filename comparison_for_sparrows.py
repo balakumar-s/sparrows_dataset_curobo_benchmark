@@ -32,7 +32,6 @@ def benchmark_curobo(
     for i in range(7):
         start_state_tensor[i] = data["initial"]["qpos"][i]
         goal_state_tensor[i] = data["initial"]["qgoal"][i]
-
     start_state = JointState.from_position(start_state_tensor.view(1, -1))
     goal_state = JointState.from_position(goal_state_tensor.view(1, -1))
     goal_pose = motion_gen.compute_kinematics(goal_state).ee_pose.clone()
@@ -100,6 +99,7 @@ if __name__ == "__main__":
     robot_data["robot_cfg"]["kinematics"]["mesh_link_names"] = robot_data["robot_cfg"][
         "kinematics"
     ]["collision_link_names"]
+    robot_data["robot_cfg"]["kinematics"]["collision_sphere_buffer"] = 0.0
     for obs_num in [10, 20, 40]:
         datadir = (
             "data/no_filter_planning_results/planning_results_pi_6/3d7links"
@@ -122,7 +122,8 @@ if __name__ == "__main__":
             interpolation_dt=0.01,
             use_cuda_graph=True,
             collision_cache={"obb": obs_num},
-            cspace_threshold=0.1,
+            maximum_trajectory_dt=0.25,
+            cspace_threshold=0.05,
         )
 
         motion_gen = MotionGen(motion_gen_config)

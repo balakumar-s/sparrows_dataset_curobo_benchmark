@@ -10,9 +10,9 @@
 
 |Number of Obstacles| Success (with 0.5 second time limit)| Planning Time(s)|
 |-|-|-|
-|10| 100 |0.037 |
-|20| 95 |0.052 |
-|40| 78 |0.073 |
+|10| 100 |0.039 |
+|20| 98 |0.045 |
+|40| 83 |0.060 |
 
 Benchmark run on RTX 4090.
 
